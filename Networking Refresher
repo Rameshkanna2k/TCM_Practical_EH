@@ -1,1 +1,65 @@
+---------------------------------------------------------------------Introduction--------------------
+IP addresses
+MAC addresses
+TCP,UDP and Three-way Handshake
+Common Ports and Protocols
+The OSI Model
+Subnetting
+------------------IP addresses-----------
+kali linux - ifconfig
+
+Third layer in networking
+
+inet - ipv4 - 32 bits - 11111111.11111111.11111111.11111111
+128 64 32 16 8 4 2 1
+1   1   1  1  1 1 1 1 = 255
+
+possible number of ip addresses - 2^32=4,294,967,296 - 4B
+
+Private IP addresses
+class A 10.0.0.0 - 255.0.0.0
+class B 172.16.0.0 to 172.31.0.0 
+class C 192.168.0.0 to 192.168.255.255 
+loopback 127.0.0.0 to 127.0.0.7
+
+
+inet6 - ipv6 - 128 BITS - 2^128 = large numbers
+
+windows - ipconfig 
+
+--------------------------------------------------------------------------------------MAC address--------------------------------
+ifconfig - ether
+
+Switches communicate via physical address and used for connecting OR installing NIC
+Mac address - Physical Address
+MAC - Media Access Control
+
+Second layer of OSI model
+
+MAC address have identifiers , it has six different pairs of two
+eg: 00:0c:29:0a:42:05
+
+Mac address lookup - copy first three pairs - identifies the device
+
+------------------------------------------------------------------------------------------TCP,UDP,Threeway handshake-----------------
+layer Four - Transport layer
+
+TCP - Transmission Control Protocol
+
+Connection Oriented Protocol
+high reliability
+SSH,HTTP,HTTPS,FTP
+
+TCP works on Three-way handshake
+SYN > SYN-ACK > ACK
+
+65000 PLUS PORTS
+
+ANALYZE THE PORTOCOLS WITH WIRESHARK
+
+UDP  - Connectionless protocol
+
+Streaming services
+DNS connectionless 
+Voiceover IP
 
