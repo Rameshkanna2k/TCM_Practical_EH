@@ -63,3 +63,20 @@ Streaming services
 DNS connectionless 
 Voiceover IP
 
+---------------------------------------common Ports and Protocols------------------------------------
+
+TCP:
+FTP - 21
+SSH - 22
+Telenet - 23
+SMTP - 25
+DNS - Domain Name System - 53
+POP3 - 110
+SMB - 139+445
+IMAP - 143
+
+UDP:
+DNS - 53
+DHCP - 67,68
+TFTP - 69
+SNMP - 161
