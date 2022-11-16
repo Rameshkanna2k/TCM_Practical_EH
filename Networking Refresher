@@ -13,7 +13,7 @@ Third layer in networking
 inet - ipv4 - 32 bits - 11111111.11111111.11111111.11111111
 128 64 32 16 8 4 2 1
 1   1   1  1  1 1 1 1 = 255
-
+1   1   0  0  0  0 0 0 = 192
 possible number of ip addresses - 2^32=4,294,967,296 - 4B
 
 Private IP addresses
@@ -80,3 +80,16 @@ DNS - 53
 DHCP - 67,68
 TFTP - 69
 SNMP - 161
+
+-----------------------------------The OSI Model-------------------------------------------
+
+1 P - physical - data cables,cat6
+2 D - Data - Switching , MAC addresses
+3 N - Network - IP addresses , routing
+4 T - Transport - TCP/UDP
+5 S - session - session management
+6 P - presentation - WMV,JPEG,MOV
+7 A - Application - HTTP,SMTP
+
+please do not throw sausage pizza away
+
