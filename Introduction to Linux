@@ -34,6 +34,9 @@ $ls -la - list all files (hidden files)
 also use $man cmd to know meaning
 example:$man -ls
 
+
+
+
 $ls -help
 
 $echo 'Hi' > test.txt
@@ -52,6 +55,97 @@ $passwd - change password
 $ls -la
 DRWXR-XR-X
 rwx - read,write,execute
+
+drwxrwxrwt - full access permissions
+
+chmod +rwx test.txt - change permission to read,write,execute
+
+or
+
+chmod 777 test.txt
+7-means rwx
+
+$sudo adduser john - add user to kali machine
+
+$su john - run has john
+
+cat /etc/passwd
+cat /etc/shadow
+
+$sudo cat /etc/sudoers
+
+grep - used to select particular word
+
+---------------------------------------------Common Network Commands-------------------------------------
+
+$ip a - find inet & broadcast address
+or
+ifconfig
+
+$iwconfig - wireless config
+
+$ip n or $arp -a - MAC address
+$ip r - routing tables
+
+$ping ip address 
+$netstat = port open
+
+---------------------------------------------------------Viewing , creating , editing files-----------------------------------
+
+$echo "hello again" > hey.txt
+$echo "hello again" >> hey.txt - append
+
+$touch newfile.txt
+
+nano,vi,vim - text editors
+
+mousepad,leafpad,gedit - graphical notepad
+
+------------------------------------------------------Installing and updating tools---------------------------------------------
+
+$sudo apt update && apt upgrade
+
+$sudo su -
+now update
+
+$sudo git clone (github repo url)
+
+-----------------------------------------------------scripting with bash--------------------------------------------------
+
+ping sweep : $ping (ip address) -c 1
+
+$ping (ip address) -c 1 > ip.txt
+
+cat ip.txt | grep "64 bytes"
+
+cat ip.txt | grep "64 bytes" | cut -d " " -f 4
+(cut used to get the specific word after number of spaces mentions
+
+cat ip.txt | grep "64 bytes" | cut -d " " -f 4 | tr -d ":"
+=================================================================
+#!/bin/bash
+for ip in `seq 1 254` ; do
+ping -c 1 192.168.4.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" & 
+done
+====================================================================
+above help to ping all network in the ip
+
+nmap - port scanning 
+
+$nmap -T4 -A -p- ipaddress
+nmap ipaddress
+
+$for ip in $(cat ips.txt); do nmap $ip ; done
+
+port scan on active ip address
+
+
+
+
+
+
+
+
 
 
 
