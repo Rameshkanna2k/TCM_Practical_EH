@@ -93,3 +93,14 @@ SNMP - 161
 
 please do not throw sausage pizza away
 
+-----------------------------------------subnetting---------------------------------------------
+ifconfig - inet:ip address,netmask:subnetmask
+
+shown excel sheet for understanding subnetting.
+Network id - first address
+broadcast - last address
+
+ipaddressguide.com/CIDR - to check the cidr details
+
+learned how to write subnet,hosts,Network ID,Broadcast from the given CIDR using the excel sheet.
+
