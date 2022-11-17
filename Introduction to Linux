@@ -1,1 +1,23 @@
+---------------------------------------------Exploring Kali Linux------------------------------------------
+kali linux open source , debian-based linux distribution , designed for digital forensics and penetration testing.
+
+-----------------------------------------------sudo Overview--------------------------------------------------
+SUDO - super user do
+
+example : $sudo cat /etc/shadow
+
+Switch user to root : $sudo su -
+
+-----------------------------------------------NAVIGATING THE FILE SYSTEM--------------------------------------------
+
+GUI - Graphical user interface
+
+$pwd - print working directory
+
+$cd .. - backward from the directory
+
+$cd Desktop - change directory
+
+$ls - list
+
 
