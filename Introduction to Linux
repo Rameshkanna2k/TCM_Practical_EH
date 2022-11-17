@@ -18,6 +18,42 @@ $cd .. - backward from the directory
 
 $cd Desktop - change directory
 
-$ls - list
+$ls - list the files
+
+$ls Download - list files in download folder
+
+$cd ~ - back to base folder
+
+$mkdir - make directory
+
+$rmdir - remove directory
+
+$ls -la - list all files (hidden files)
+
+(Explainshell.com) - meaning for the commands
+also use $man cmd to know meaning
+example:$man -ls
+
+$ls -help
+
+$echo 'Hi' > test.txt
+
+$cp test.com Downloads  - copy file
+
+$rm /Download/test.txt - remove
+
+$locate test.txt
+
+(folders are case sensitive)
+
+$passwd - change password
+
+---------------------------------------------------------USERS AND PRIVILEGES--------------------------------
+$ls -la
+DRWXR-XR-X
+rwx - read,write,execute
+
+
+
 
 
