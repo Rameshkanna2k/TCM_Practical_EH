@@ -1,1 +1,25 @@
+Python is a coding and scripting language.
+--------------------------------------------------------------------------------Strings--------------------------------------------
+$mousepad first.py& ----> create & open the python file
 
+================================================
+#!/bin/python3
+#print string
+print("hello,world") ----------use double or single quote to mention string
+print("""this string runs
+multiple lines""") --------------------triple quote for multi-line
+print("This string is "+"awesome") ------------we can also concatenate
+print('/n') #new line
+===============================================
+
+---------------------------------------------------------------------------------MATH----------------------------------------------------
+=================================================
+#!/bin/python3
+print(50+50)
+print(50-50)
+print(50*50)
+print(50/50)
+print(50+50-50*50/50) #PEMDAS
+print(50 ** 2) #exponents
+print(50 % 6)
+=================================================
