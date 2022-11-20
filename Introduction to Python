@@ -23,3 +23,33 @@ print(50+50-50*50/50) #PEMDAS
 print(50 ** 2) #exponents
 print(50 % 6)
 =================================================
+Variable & Methods
+
+A Python variable is a symbolic name that is a reference or pointer to an object. Once an object is assigned to a variable, you can refer to the object by that name. 
+But the data itself is still contained within the object.
+
+A method is a function that “belongs to” an object.
+
+===============================================
+#!/bin/python3
+quote = "All is fair" (quote is variables)
+print(quote)
+
+print(quote.upper()) #uppercase
+print(quote.lower()) #lowercase
+print(quote.title()) #title case
+print(len(quote))    #counts characters
+
+name="Heath"
+age=33
+gpa=3.7
+
+print(int(age))
+
+can only concatenate str (not "int" ) to str
+
+print("My name is " + name + "and I am " + str(age) + " years old")
+
+
+
+
