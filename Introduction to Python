@@ -23,7 +23,7 @@ print(50+50-50*50/50) #PEMDAS
 print(50 ** 2) #exponents
 print(50 % 6)
 =================================================
-Variable & Methods
+---------------------------------------------------------------------------------Variable & Methods------------------------------------------------------
 
 A Python variable is a symbolic name that is a reference or pointer to an object. Once an object is assigned to a variable, you can refer to the object by that name. 
 But the data itself is still contained within the object.
@@ -45,10 +45,13 @@ age=33
 gpa=3.7
 
 print(int(age))
+print(int(30.1))
 
 can only concatenate str (not "int" ) to str
 
 print("My name is " + name + "and I am " + str(age) + " years old")
+
+age +=
 
 
 
