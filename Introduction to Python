@@ -98,6 +98,62 @@ def nl(): #new line
  nl()
  =================================================================================
  -------------------------------------------------------------------Boolean Expressions and Retaional operators------------------------------------
+ =================================================================================
+ #boolean Expressions
+ 
+ bool1=True
+ bool2=3*3 == 9
+ bool3 = false
+ bool4=3*3 != 9
+ 
+ print(bool1,bool2,bool3,bool4)
+ 
+ output:True True False False
+ ================================================================================
+ RELATIONAL & BOOLEAN OPERATORS:
+ 
+ >,<,==,TRUTHTABLES
+ 
+ ================================================================================
+ 
+ ---------------------------------------------------------------------------Conditional statement-----------------------------------------------------------
+ 1.if/else
+ 
+ ====================================================
+ def drink(money):
+      if money >=2:
+                return "you got a drink"
+      else:
+                return "no drink"
+  print(drink(3))
+  
+  output:you got a drink
+  ================================================
+ 
+ 2.multiple if else statements (elif)
+ 
+ --------------------------------------------------------------------------------Lists--------------------------------------------------------------
+ 
+ Lists - have brackets []
+ ==================================================================
+ movies = ["one" , "two" , "three" , "four" , "five"]
+ 
+ print(movies[1]) #return the second item in the list
+ 
+ print(len(movies)) #count items in the list
+ 
+ movies.append("Jaws")
+ print(movies) #appends to the end of the list
+ 
+ movies.insert(2,"Hustle")
+ 
+ movies.pop(0)
+
+amer_movies=['six','seven']
+our_favorite = movies + amber_movies
+print(our_favorite)
+
+
  
     
 
