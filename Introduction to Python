@@ -199,7 +199,42 @@ while i < 10 :
   too_much_space = "                            hello    "
   print(too_much_space.strip())
   
-  ----------------------------------------------------------------
+  ----------------------------------------------------------------DICTIONARIES--------------------------------
+  
+  dictionaries - key/value pairs {}
+  
+  drinks = {"one":1,"two":2,"three":3} #drinks is the key , price is the value
+  print(drinks)
+  
+  employees = {"finance":["1","2","3"] , "IT" : ["4","5","6"]}
+  employees['legal'] = ['7','8']
+  print(employees)
+  
+  employees.update({"sales":["1","2"]})
+
+--------------------------------------------------------------Importing modules--------------------------
+#!/bin/python3
+
+importing - it si important.
+
+import sys #system functions
+from datetime import datetime as dt
+print(sys.version)
+print(dt.now())
+
+-----------------------------------------------SOCKETS-----------------------------------------
+used to connect two nodes together.
+
+#! /bin/python3
+
+import socket
+HOST = '127.0.0.1'
+PORT = 7777
+
+s = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
+s.connect((HOST,PORT))
+
+NETCAT - establish a listener on an open port (nc -nvlp 7777)
 
  
    
