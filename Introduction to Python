@@ -181,6 +181,30 @@ i=1
 while i < 10 :
     print(i)
     i += 1
+   
+ ---------------------------------------------------------ADVANCED STRING---------------------------------------
+ my_name = "Heath"
+ print(my_name[0]) #first letter
+ 
+ String are immutable , can not be changed
+ 
+ spliting and joining possible to string
+ 
+ sentence = "i am ramesh"
+ print(sentence[:4])
+  print(sentence.split) #delimeter - default is a space
+  
+  quote="he said, \"give me all your money\""
+  
+  too_much_space = "                            hello    "
+  print(too_much_space.strip())
+  
+  ----------------------------------------------------------------
+
+ 
+   
+   
+    
     
     
 
