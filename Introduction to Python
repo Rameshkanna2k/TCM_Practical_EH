@@ -134,11 +134,12 @@ def nl(): #new line
  
  --------------------------------------------------------------------------------Lists--------------------------------------------------------------
  
- Lists - have brackets []
+ Lists - have brackets [] , list are data structure , they are changable  
  ==================================================================
  movies = ["one" , "two" , "three" , "four" , "five"]
  
  print(movies[1]) #return the second item in the list
+ print(movies[1:3]
  
  print(len(movies)) #count items in the list
  
@@ -147,11 +148,18 @@ def nl(): #new line
  
  movies.insert(2,"Hustle")
  
- movies.pop(0)
+ movies.pop(0) -- remove the item in the list
 
-amer_movies=['six','seven']
+amber_movies=['six','seven']
 our_favorite = movies + amber_movies
 print(our_favorite)
+
+grades = [["Bob",82],["Alice",90],["jeff",73]]
+bobs_grade = grades[0][1]
+print(bobs_grade)
+output:82
+
+
 
 
  
