@@ -159,8 +159,30 @@ bobs_grade = grades[0][1]
 print(bobs_grade)
 output:82
 
+-------------------------------------------------------TUPLES--------------------------------------------------
+tuples do not change , they get parentheses () , immutable 
 
+grades = ("a","b","c","d","f")
+print(grades[1])
 
+--------------------------------------------------------LOOPING-----------------------------------------------
+
+FOR LOOP - start to finish of an iterate.
+
+=================================================
+vegetables = ["cucumber","spinach","cabbage"]
+for x in vegetables:
+     print(x)
+================================================
+
+WHILE LOOPS - execute as long as true
+i=1
+========================================
+while i < 10 :
+    print(i)
+    i += 1
+    
+    
 
  
     
