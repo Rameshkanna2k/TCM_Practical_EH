@@ -101,6 +101,16 @@ nano,vi,vim - text editors
 
 mousepad,leafpad,gedit - graphical notepad
 
+------------------------------------------------Starting and stopping services----------------------------------------------------
+
+sudo service apache2 start
+sudo service apache2 stop
+
+python3 -m http.server 80
+
+sudo systemctl enable ssh
+
+
 ------------------------------------------------------Installing and updating tools---------------------------------------------
 
 $sudo apt update && apt upgrade
