@@ -319,7 +319,27 @@ except socket.error:
  print(months.readline)
  print(months.readlines)
 
+=====================================================
+
+#!/bin/python3
  
+ months = open('months.txt')
+ for month in months:
+        print(month.strip())
+        
+ months.close()
+ 
+ ====================================================
+  write mode
+  
+  days = open('days.txt',"w")
+  
+  days.write("Monday")
+  days.close()
+  
+  ====================================================
+        
+
               
               
               
