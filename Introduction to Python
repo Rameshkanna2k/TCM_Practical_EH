@@ -277,7 +277,49 @@ except socket.error:
                print("Hostname could not be resolved.")
                sys.exit()
                
- --------------------------------          
+ -------------------------------------------------------------------USER INPUT----------------------------------------------------------
+======================================================== 
+ #! /bin/python3
+ 
+ name  = input ("Enter your name:")
+ drink = input ("what is your favorite drink?:")
+ print("Hello "+name+"! have a "+drink+".")
+ =====================================================
+ #! /bin/python3
+ 
+ x  = float ( input ("give me a number:"))
+ o = input("Give me an operator:")
+ y = float(input ('give another number:"))
+ 
+ if o == "+":
+          print(x+y)
+ elif o == "-":
+          print(x-y)
+ elif o == "/":
+          print(x/y)
+ elif o == "*":
+          print(x*y)
+ else 
+    print("unknown operator")
+    
+  =====================================================
+  
+  ---------------------------------------------------Reading and writing flies----------------------------------------
+  #! /bin/python3
+  
+  months = open('months.txt')
+  print(months)
+  print(months.mode)
+  print(months.readable())
+  
+  months.close()
+  =======================================
+  
+ print(months.read)
+ print(months.readline)
+ print(months.readlines)
+
+ 
               
               
               
