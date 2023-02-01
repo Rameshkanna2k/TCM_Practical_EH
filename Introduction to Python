@@ -338,9 +338,57 @@ except socket.error:
   days.close()
   
   ====================================================
-        
-
-              
+  
+ -------------------------------------------------------------------------NUILDING A SHOE BUDGET TOOL--------------------------------------------
+ (Shoes.py)
+ 
+ class shoes:
+       def _init_(self, name , price):
+                self.name = name
+                self.price = float(price)
+                
+       def budget_check(self, budget):
+                if not isinstance(budget, (int,float))
+                        print('Invalid entry . please enter a number.')
+                        exit()
+                        
+       def change(self , budget):
+                    return (budget - self.price)
+                    
+       def buy(self, budget):
+                self.budget_check(budget)
+                
+                if budget >= self.price:
+                     print(f'you can cop some {self.name}')
+                     
+                     if budget == self.price:
+                        print('you have exactly enough money for these shoes.')
+                        
+                        else:
+                            print(f'you can buy these shoes and have $ {self.change(budget)} left over')
+                            
+                            exit('Thanks for using our shoe budget app!')
+                            
+                            
+ shoepurchase.py
+ 
+ #!/bin/python3
+ 
+ from shoes import shoes
+ 
+ low = shoes('And Is' , 30)
+ medium = shoes('Air Force Is' , 120)
+ high = shoes('Off whites' , 400)
+ 
+ try :
+        shoe_budget = float(input('what is your shoe budget? ' ))
+ except ValueError:
+       exit('please enter a number')
+       
+ for shoes in [high,medium,low]:
+        shoes.buy(shoe_budget)
+                   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------            
               
               
             
