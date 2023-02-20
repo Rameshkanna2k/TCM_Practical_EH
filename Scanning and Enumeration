@@ -1,0 +1,24 @@
+---------------------------------------------------Installing Kioptrix--------------------------------------------
+Download Vulnhub Kioptrix level 1
+
+https://tcm-sec.com/kioptrix
+
+Installing with Virutal box and VM ware
+---------------------------------------------------Scanning with Nmap-------------------------------------------------
+username:john
+password:TwoCows2
+
+$ping 8.8.8.8
+$arp-scan -l
+
+$netdiscover -r 192.168.57.0/24
+
+nmap - network mapper
+
+-sS - Stealth scan
+-A - OS information
+-p - port
+-T4 - time 4 seconds
+
+nmap -T4 -p- -A 192.168.57.134
+
