@@ -22,3 +22,9 @@ nmap - network mapper
 
 nmap -T4 -p- -A 192.168.57.134
 
+-----------------------------------------------------Enumerating HTTP and HTTPS Part 1 & 2 ---------------------------
+
+*talk about Ethernalblue & MS 17 
+*Talk about how to exploit apache default page
+$Nikto -h http://192.168.57.134
+
