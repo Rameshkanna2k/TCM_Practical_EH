@@ -1,1 +1,55 @@
+--------------------------------------------------------Passive Recon-----------------------------------------------
+Physical/Social
+Location information
+Job Information
+
+1.Target validation - whois
+2.Finding subdomains - sublist3r
+3.Fingerprinting - nmap,wappalyzer
+4.Data Breaches - haveibeenpwned
+
+------------------------------------------------Identifying our target--------------------------------------------------------------------
+Bugcrowd
+hackerone etc
+------------------------------------------------Discovering Email Addresses-----------------------------------------------------
+1.hunter.io
+2.phonebook.cz
+3.voilanorbert.com
+4.emailhippo,email-checker.net - verify it is real
+*clearbit chrome extension
+----------------------------------------------Gathering Breached Credentials with Breach-parse------------------------------------------------
+Github - BREACH-PARSE
+-----------------------------------------------Hunting Breached Credentials with DeHashed-------------------------------------
+DEHASHED.COM - PAID ONLY Helps to find leaked informations
+hashes.org - checking for hash
+-----------------------------------------------Hunting Subdomains Part -1 & 2 --------------------------------------------------------------------
+*.tesla.com - (*) > wildcard
+
+1.sublist3r
+apt install sublist3r
+
+2.crt.sh
+3.amass
+4.httprobe (for website which is alive)
+
+------------------------------------------------Identifying Website Technologies-----------------------------------------------
+1.builtwith
+2.wappalyzer
+3.whatweb
+--------------------------------------------------Information Gathering with Burp Suite-------------------------------------
+Burpsuite is a web proxy , Has the capability of intercepting traffic for us.
+
+*Configuring Burpsuite
+*https://burp -> Download CA certificate
+*Import the certificate
+
+>Intercept on & off
+----------------------------------------------------Google Fu---------------------------------------------------
+Google dork:
+site:tesla.com -www -ir
+site:tesla.com filetype:pdf
+---------------------------------------------------Utilizing Social media------------------------------------------
+Using linkedin images find badges or id card informations
+--------------------------------------------------(Additional OSINT Fundamentals)---------------------------------
+Course promo from TCM
 
