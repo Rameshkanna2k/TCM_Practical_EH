@@ -28,3 +28,43 @@ nmap -T4 -p- -A 192.168.57.134
 *Talk about how to exploit apache default page
 $Nikto -h http://192.168.57.134
 
+*Dirbuster,dirb,gobuster
+*How to use dirbuster
+*View source code
+*Explaining burpsuite > repeater,request,response
+--------------------------------------------------------------------Enumerating SMB------------------------------------
+SMB - Server Message Block -> if this service has a vulnerability allows an attacker to execute code on the target system.File sharing
+
+Metasploit -> Exploitation framework
+$msfconsole
+
+Auxiliary modules -> scanning & enumeration , portscanning
+post modules -> post exploitation
+payloads
+encoders
+evasion
+
+$search smb
+$use /auxiliary/scanner/smb/smb_version
+$info
+$options
+$set RHOSTS 192.168.57.134
+
+smbclient -L \\\192.168.57.134\\\
+
+-------------------------------------------------------------------------Enumerating SSH-------------------------------------
+22/tcp ssh
+
+$ssh 192.168.57.134
+-------------------------------------------------------------------------Researching Potential Vulnerabilities-----------------------
+mod_ssl/2.8.4 - cve-2002-0082
+
+apache hhd 1.3.20
+
+samba 2.2.1a exploit
+
+$searchsploit samba 2
+$searchsploit mod ssl 2
+
+----------------------------------------------------------Our notes so far------------------------------------------
+cherrytree
