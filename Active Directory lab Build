@@ -6,6 +6,72 @@
 2.Requirements
 *60 GB Disk Space
 *16GB RAM
+---------------------------------------------------------------DOWNLOADING NECESSARY ISO'S-------------------------
+1.google search -> microsoft evalution centre -> windows 10 enterprise -> ISO - Enterprise -> continue  -> fill the info ->64 bit ->Download
+2.Windows server evalutions -> english -> download
+
+----------------------------------------------------------------SETTING UP THE DOIMAIN CONTROLLER----------------------------------
+1.vm-workstation ->create ->server eval -> windows server 2016 standard ->next -> finish
+  hardware -> NAT , MEMORY - 4GB
+  PLAY VIRUTAL MACHINES
+  
+  Manage -> Install vmware tools ->complete install -> finish
+  
+  start menu - view ur pc name -> HYDRA-DC -> restart now
+  
+  server manager -> manage  ->add roles and features -> server roles give AD DS ->ADD FEATURES ->NEXT ->INSTALL
+  
+  YELLOE FLAG -> PROMOTE THIS SERVER TO A DOMAIN CONTROLLER -> ADD A NEW FOREST -> ENTER ROOT DOMAIN (MARVEL.LOCAL) ->next - install
+  
+  ----------------------------------------------------setting up the user machine--------------------------------------------------
+  
+  create -> client enterprise -> next -> windows 10 enterprise -> 4gb -> finish
+  
+  remove the floppy drive
+  
+  domain join instead 
+  give a name - frankcastle
+  
+  Manage -> Install vmware tools ->complete install -> finish
+    
+  start menu - view ur pc name -> THEPUNISHER -> restart now
+  
+ ------------------------------------------------SETTING UP THE USER MACHINES-----------------------------------------------------
+ NOW INTO MARVEL MACHINE 
+ 
+ tools -> AD Users and computers
+ 
+ MARVELLOCAL -> RIGHT CLICK -> NEW ->GROUPS -> TYPE GROUP
+ 
+CREATE NEW OBJECTS
+CREATE NEW USERS
+NEW SHARE WIZARD
+create sql service
+
+$setspn -a HYRA-DC/SQLService.MARVEL.local:60111 MARVEL\SQLService
+$setspn -T MARVEL.local -Q */*
+
+GROUP POLICY MANAGEMENT:
+marvellocal
+Disable windows defender -> scope -> enforced yes
+
+------------------------------------------------------------Joining our machine to the domain------------------------------------------
+Now we are in frankcastle machine
+
+share in properties
+
+get ip address 192.168.57.140
+
+network settings -> change adapter options -> ethernet 0 -> internet protocal version 4 -> under dns type 192.168.57.140 -> ok
+
+Access work or school -> connect 
+
+Domain name -> Marvellocal
+enter username and password
+
+configure the users in sever manager
+----------------------------------------------------------------LAB BUILD(cloud alternative)-----------------------
+
+https://kamran-bilgrami.medium.com/ethical-hacking-lessons-building-free-active-directory-lab-in-azure-6c67a7eddd7f
 
 
-   
