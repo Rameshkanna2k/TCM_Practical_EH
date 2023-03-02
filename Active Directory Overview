@@ -1,0 +1,48 @@
+---------------------------------------------------ACTIVE DIRECTORY OVERVIEW---------------------------------------------------
+*Directory service developed by microsoft to manage windows domain networks
+*authenticates using kerberos tickets , linux machines also can authentiacte to active directory via RADIUS or LDAP.
+
+*Active diectory is most commonly used identity management service in the world
+*can be exploited without ever attacking patchable exploits.
+*we abuse features,trusts,components and more.
+
+--------------------------------------------PHYSICAL AD COMPONENTS-----------------------------------------
+
+1.Domain controllers
+
+A domain controller is a type of server that processes requests for authentication from users within a computer domain. Domain controllers
+are most commonly used in Windows Active Directory (AD) domains but are also used with other types of identity management systems
+
+source:Microsoft virutal Academy
+
+if we compromise domain controller , we compromised everything.
+
+2.Active directory DS
+
+ Active Directory Domain Services (AD DS), provides the methods for storing directory data and making this data available to network users and administrators.
+ 
+ consits of the Ntds.dit file
+ stored default in the %SystemRoot%\NTDS folder
+ accessible only by domain controller and protocols.
+ 
+ ---------------------------------------------LOGICAL AD COMPONENTS---------------------------------------------------------
+ 
+ 1.Active directory DS Schema(blueprint)
+ 
+ *Defines every type of object that can be stored in the directory.
+ *Enforces rules regarding object creation and configuration
+ 
+ object types                    function                    examples
+ 1.class                 what object can be created in       user,computer
+                          directory
+ 2.attribute             info attached to an object          Display name
+ 
+ 
+ Domains - domains are used to group and manage objects in an organization
+ trees - a domians tree is a hierarchy of domains in AD DS.
+ Forests - is a collection of one or more domains trees
+ Organizational units - ad containers that can contain users,groups,computers and other Ous
+ Trusts - provide a mechanism for users to gain access to resoures in another domain
+ 1.directional 2.Transitive
+ objects - what are the things should be inside our Ous.
+ ------------------------------------------------------------------------------------------------------
