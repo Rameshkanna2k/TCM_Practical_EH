@@ -1,0 +1,56 @@
+----------------------------------------------------INTRODUCTION----------------------------------------------
+we have compromised the user account in the last vector session , manage to capture frankcastle ,got hash and found 
+the password.
+tool:
+powerview - allows has to look at the network and look at enumerate basically the domain controller etc.
+Bloodhound - visualize the graph form what is going on in the domain in the network and we find the sensitive user may
+logged in.
+
+-----------------------------------------------------POWERVIEW OVERVIEW-------------------------------------------
+GOOGLE SEARCH , GITHUB POWERTOOL/POWERVIEW 
+DOWNLOAD
+------------------------------------------------------DOMAIN ENUMERATION WITH POWERVIEW-------------------------------------
+in frankcastle machine:
+open powershell
+$cd Downloads
+$powershell -ep bypass
+$. .\Powerview.ps1
+$Get-NetDomain
+$Get-NetDomainController
+$Get-DomainsPolicy
+$(Get-DomainPolicy)."system access"
+$Get-Netuser
+$Get-NetUser | select cn
+$Get-UserProperty -properties pwdlastset
+$Get-NetComputer -FullData 
+$Get-NetGPO | select Displayname , whenchanged
+
+github repo Harmjoy powerview cheatsheet
+
+-----------------------------------------------------------Bloodhound Overview and setup-------------------------------------------
+bloodhound - download the data for active directory
+
+harmjoy active directory gurus
+
+$apt install bloodhound
+$neo4j console
+$bloodhound
+
+---------------------------------------------------------Grabbing data with invoke-bloodhound----------------------------------------
+
+tool - sharp pound
+invoke-bloodhound (data collecter)
+
+$Invoke-Bloodhound -CollectionMethod All -Domain Marvel.local -ZipFileName file.zip
+
+copy the file.zip from the machine , paste in kali machine
+
+----------------------------------------------------------Enumerating Domin Data with BloodHound---------------------------------------------------
+
+$bloodhound
+
+Database info
+Pre-Built Analytics Queries
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
