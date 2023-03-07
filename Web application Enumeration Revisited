@@ -1,0 +1,75 @@
+------------------------------------------------------Introduction--------------------------------------------
+Going to create a script for automation.
+
+subdomain,live,screenshot
+---------------------------------------------------installing go-------------------------------------------
+download and install golang
+$git clone pimpmykali
+$cd pimpmykali
+$3
+----------------------------------------------------Finding subdomain with Assetfinder-----------------------------------------------
+
+download and install assetfinder
+
+$assetfinder tesla.com >> tesla-sub.txt
+$assetfinder --subs-only 
+
+$gedit run.sh
+====================================================================
+#!/bin/bash/
+
+url=$1
+
+if[ ! -d "$url" ] ; then
+          mkdir $url
+fi
+if[ ! -d "$url/recon" ];then
+          mkdir $url/recon
+fi          
+echo"[+] finding subdomain with assetfinder.."
+assetfinder $url >> $url/recon/assets
+cat $url/recon/assets.txt | grep $1 >> $url/recon/final.txt
+rm $url/recon/assets.txt
+
+echo"[+] finding subdomain with AMASS.."
+amass enum -d $url >> $url/recon/f.txt
+sort -u $url/recon/f.txt >> $url/recon/final.txt
+rm $url/recon/f.txt
+
+echo"[+] probing for alive domains..."
+$cat tesla.com/recon/final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?\/\////' | tr -d ':443' >> $url/recon/alive.txt
+
+===============================================================
+
+$chmod +x run.sh
+$./run.sh tesla.com
+
+---------------------------------------------------------FINDING SUBDOMAIN WITH AMASS-------------------------------------------
+
+DOWNLOAD AND INSTALL AMASS , USING GO LANG
+
+just wrote the above program
+
+---------------------------------------------------------Finding alive domains with httprobe-----------------------------------------
+
+download and install httprobe
+
+$cat tesla.com/recon/final.txt | httprobe -s -p https:443 | sed 's/https\?\/\////' | tr -d ':443'
+
+-----------------------------------------------------------Screenshotting the websites with gowitness---------------------------------------
+
+*Download & install gowitness
+
+$gowitness single https://tesla.com
+
+-----------------------------------------------------------Automating the enumeration process---------------------------------
+github thatonetester/sumrecon
+automatic recon tool
+
+-------------------------------------------------------ADDITIONAL RESOURCES--------------------------------------
+
+jason-haddix bug bounyty hunter methodology
+
+Nahamsec Recon
+------------------------------------------------------------------------------------------------------------
+
