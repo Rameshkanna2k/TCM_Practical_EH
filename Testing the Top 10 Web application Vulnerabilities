@@ -1,0 +1,55 @@
+--------------------------------------------------------------INTRODUCTION----------------------------------------------------
+We are going to test the Top 10 Web Applications Vulnerabilities
+
+Install juice shop
+
+-------------------------------------------------The OWASP TOP 10 and OWASP TESTING CHECKLIST--------------------------
+OWASP - open web application security project
+
+*OWASP Cheat sheet
+Ten 10 bugs:
+injection.broken authentiaction,sensitive data exposures,XML External Entities,Broken access control,
+Security Misconfiguration,XSS,Insecure Deserialization,using components with known vuln
+
+know why is vulnerable and how to fix it.
+
+*portswigger
+Download
+Owasp_testing_checklist
+Owasp_testing_guide     
+
+---------------------------------------------------Installing Owasp juice shop---------------------------------------
+
+owasp juice shop - 
+*Installing the docker in kali machine
+
+https://airman604.medium.com/installing-docker-in-kali-linux-2017-1-fbaa4d1447fe
+
+download and install juice shop
+
+https://github.com/juice-shop/juice-shop
+
+gitbooks - pwning OWASP juice shop (challenges and solutions)
+
+------------------------------------------------Installing Froxy PROXY-------------------------------------------------------
+
+find extension froxy proxy in the brower extensiom (already know to set)
+
+----------------------------------------------------Explore Burpsuite-----------------------------------------------------
+
+1.Unauthenticated testing
+2.Admin user
+3.Authenticated testing
+
+*add to scope
+*shows only scope
+*Enagement tool
+*active scanning
+*rely on manual testing
+*send to repeater - to repeat request
+*Bappstore
+*Encode & Decoder
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
