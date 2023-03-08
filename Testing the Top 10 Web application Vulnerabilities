@@ -184,6 +184,20 @@ execute code, bypass authentication or further abuse the logic behind an applica
 
 its hard to exploit.
  
+ ysoserial , serialization and deserialization
  
+ ---------------------------------------------------Using components with known vulnerabilities------------------------------------------------
+ 
+ network pentest - eternalblue
+ 
+ CVE - common vulnerabilities exposure
+ 
+ shodan - search query
+ 
+ ---------------------------------------------------Insufficient logging and monitoring--------------------------------------
+ 
+ you should monitor the logging information every interval.
+ 
+ ------------------------------------------------------------------------------------------------------------
      
 
