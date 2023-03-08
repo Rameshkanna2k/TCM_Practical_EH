@@ -80,4 +80,40 @@ order by - sorts records in ascending/descending order
 Plus a bunch of others that follow programmatic logic =,+,>,<.() etc
 
 
+------------------------------------------SQL Injection Walkthrough-----------------------------------------------------
+
+testing SQL injection in login page
+
+in email field : test' OR 1=1; --
+
+-------------------------------------------------SQL Injection Defenses---------------------------------------------------------------
+
+1.Parameterized Statements
+2.Sanitizing input
+
+-------------------------------------------------Broken Authentication Overview and defenses--------------------------------------------
+
+https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication
+
+--------------------------------------------------Testing for broken authentication--------------------------------------------
+
+*forgot password , security question - user enumeration
+
+--------------------------------------------------Sensitive Data Exposure Overview----------------------------------------------
+
+*passwords stored in clear text
+
+https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure
+
+*found backup file , got the whole website source code.
+
+-------------------------------------------------Testing for sensitive data exposure--------------------------------------------------
+
+*found /ftp directory leaking the backup file.
+
+*nmap --script=ssl-enum-ciphers -p 443 tesla.com
+
+-------------------------------------------------XML External Entities--------------------------------------------
+
+
 
