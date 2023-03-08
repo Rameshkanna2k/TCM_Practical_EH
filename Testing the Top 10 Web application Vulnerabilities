@@ -55,5 +55,29 @@ localhost:3000/score-board directory
 
 ideas about the vulnerabilities
 
-------------------------------------------------------------------------------------------------
+------------------------------------------------------SQL injection attack overview------------------------------------
+
+*SQL injection is an attack in which malicious sql statements are injected into a sql database
+*SQL injection is easy to avoid , but still happens often
+*if successful, we can read sensitive databases,extract information,modify databases and potentially even get a shell.
+
+Common SQL verbs :
+SELECT - Retrives data from a table
+INSERT - Adds data to a table
+DELETE - Removes data from a data
+UPDATE - modifies data in a table
+DROP   - Delete a table
+UNION  - Combines Data from multiple queries
+
+Where - filters records based on specific condition
+and/or/not - filter records based on multiple conditions
+order by - sorts records in ascending/descending order
+
+' and " - string delimiters
+--,/*, and # - comment delimiters
+* and % - wildcards
+; - Ends SQL statements
+Plus a bunch of others that follow programmatic logic =,+,>,<.() etc
+
+
 
