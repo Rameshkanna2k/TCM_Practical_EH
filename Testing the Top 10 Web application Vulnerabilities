@@ -115,5 +115,75 @@ https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure
 
 -------------------------------------------------XML External Entities--------------------------------------------
 
+XML External Entities - XXE
 
+*Attacking systems that parse XML input
+*Abuse SYSTEM entity and get malicious
+*Attacks include denial of service,local file disclosure.RCE......
+
+============================================
+<?XML version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE   gift [
+               <ENTITY from "Heath">
+]>               
+<gift>
+     <To>Frank</To>
+     <From>HEATH</From>
+     <Item>Pokemon Cards</Items>
+</gift>
+ 
+ ============================================
+ 
+ *xxe payloads in google
+ 
+ ------------------------------------------------------XXE attack defense----------------------------------------------------
+ only thought theory of the exploit.
+ 
+ exploit not working in docker 
+ 
+ ----------------------------------------------------Broken Access control------------------------------------------
+ 
+ https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+ 
+ ----------------------------------------------------Broken access control walkthrough---------------------------------
+ 
+ in feedback form , inspect element to see the user id.
+ By changing the hidden into null
+ 
+ ---------------------------------------------------Security Misconfiguration attacks Defenses-----------------------------------------
+ https://owasp.org/Top10/A05_2021-Security_Misconfiguration/
+ 
+ ---------------------------------------------------Cross-site-scripting------------------------------------------
+ three types of XSS:
+ *Reflected xss
+ *Stored XSS
+ *DOM xss
+ 
+ https://owasp.org/www-community/attacks/xss/
+ 
+ practice xss-game
+ 
+ ------------------------------------------------Reflected Xss Walkthrough------------------------------------------
+ 
+ payload : <iframe src="javascript:alert('xss')"> in search bar
+ 
+ ------------------------------------------------Stored XSS walkthrough---------------------------------------
+ 
+ stored xss in username
+ 
+ --------------------------------------------------Preventing XSS-------------------------------------------
+*Encoding < becomes &lt;
+*filtering
+*validating
+*santization
+
+--------------------------------------------------Insecure Deserialization------------------------------------------
+Insecure deserialization is a vulnerability in which an untrusted or unknown data is used to either
+inflict a denial of service attack (DoS attack), 
+execute code, bypass authentication or further abuse the logic behind an application.
+
+its hard to exploit.
+ 
+ 
+     
 
