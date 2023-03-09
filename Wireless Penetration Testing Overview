@@ -11,6 +11,29 @@ Reviewing nearby networks
 Assessing guest networks
 checking network access
 
+Alfa AWUD036NH - wireless cards
+
+You want the WC to proceed the attack
+
+The Hacking Process:
+
+Place - Place wireless card into monitor mode
+Discover - Discover Info about network
+Select - select network and capture data
+Perform - Perform deauth attack
+Capture - capture WPA handshake
+Attempt - Attempt to crack the handshake
+
+---------------------------------------------WPA_PS2_Exploit_Walkthrough---------------------------------------
+
+*player -> removable Devices -> Ralink 802.11.n WLAN -> Connect (Disconnect from host) 
+
+$iwconfig
+
+*airmon-ng check kill
+
+
+
 
 
 
